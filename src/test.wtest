@@ -1,0 +1,17 @@
+import capos.*
+
+test "encontrar artefactos" {
+	
+}
+
+test "castillo" {
+	
+}
+
+test "posesiones" {
+	
+}
+
+test "historia" {
+	
+}
