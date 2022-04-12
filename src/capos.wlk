@@ -35,14 +35,12 @@ object rolando {
 		}
 		artefactosEncontrados.add(nuevoArtefacto)
 		self.todosLosArtefactos().add(nuevoArtefacto)
-		
 	}
 
 	method llegarAlCastillo() {
 		castilloDePiedra.artefactos().addAll(self.artefactos())
 		self.artefactos().clear()
 	}
-
 
 	method artefactosEncontrados() {
 		return artefactosEncontrados
