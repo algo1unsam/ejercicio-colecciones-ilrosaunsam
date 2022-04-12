@@ -1,17 +1,49 @@
 import capos.*
 
-test "encontrar artefactos" {
+test "rolando: encuentra 3 artefactos" {
+	rolando.agregarArtefacto(espadaDelDestino)
+	rolando.agregarArtefacto(libroDeHechizos)
+	rolando.agregarArtefacto(collarDivino)
 	
+	assert.that(rolando.artefactos().contains(espadaDelDestino))
+	assert.that(rolando.artefactos().contains(libroDeHechizos))
+	assert.notThat(rolando.artefactos().contains(collarDivino))
 }
 
-test "castillo" {
+test "castillo de piedra: rolando agarra artefactos y los guarda" {
+	rolando.agregarArtefacto(espadaDelDestino)
+	rolando.agregarArtefacto(libroDeHechizos)
+	rolando.llegarAlCastillo()
+	rolando.agregarArtefacto(collarDivino)
+	rolando.llegarAlCastillo()
 	
+	assert.that(castilloDePiedra.artefactos().contains(espadaDelDestino))
+	assert.that(castilloDePiedra.artefactos().contains(libroDeHechizos))
+	assert.that(castilloDePiedra.artefactos().contains(collarDivino))
 }
 
-test "posesiones" {
+test "saber los artefactos de rolando" {
+
+	rolando.agregarArtefacto(collarDivino)
+	rolando.agregarArtefacto(espadaDelDestino)
+	rolando.llegarAlCastillo()
+	rolando.agregarArtefacto(armaduraDeAceroValyrio)
 	
+	assert.equals(#{collarDivino, espadaDelDestino, armaduraDeAceroValyrio}, rolando.todosLosArtefactos())
+	assert.notThat(rolando.todosLosArtefactos().contains(libroDeHechizos))
+		
+ 
 }
 
-test "historia" {
+test "saber la historia de los artefactos encontrados" {
+
+	rolando.agregarArtefacto(espadaDelDestino)
+	rolando.agregarArtefacto(libroDeHechizos)
+	rolando.agregarArtefacto(collarDivino)
+	rolando.llegarAlCastillo()
+	rolando.agregarArtefacto(armaduraDeAceroValyrio)
+	rolando.agregarArtefacto(collarDivino)
 	
+	assert.equals([espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino], rolando.artefactosEncontrados())
+ 
 }
